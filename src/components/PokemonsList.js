@@ -1,24 +1,11 @@
-import { useEffect, useState } from "react";
 import PokemonShortCard from "./PokemonShortCard";
 
-export default function PokemonsList() {
-  const [pokemonsData, setPokemonsData] = useState([]);
-  useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon/")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setPokemonsData(data.results);
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
+export default function PokemonsList({ pokemonsData }) {
   return (
-    <section>
-      {pokemonsData && pokemonsData.length}
+    <section className="pokemons-list">
       {pokemonsData &&
         pokemonsData.map((item) => {
-          return <PokemonShortCard key={item.name} data={item} />;
+          return <PokemonShortCard key={item.id} data={item} />;
         })}
     </section>
   );
