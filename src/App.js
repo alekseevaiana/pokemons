@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import PokemonsList from "./components/PokemonsList";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import PokemonPage from "./components/PokemonPage";
@@ -8,10 +8,10 @@ import Navigation from "./components/Navigation";
 function App() {
   const [pokemonsData, setPokemonsData] = useState([]);
   const [offset, setOffset] = useState(0);
-  // добавлять офсет
-  // добавить к стейту новые данные
+  const appEl = useRef();
+
   useEffect(() => {
-    console.log("offset in effect is " + offset);
+    console.log("offset in effect is [" + offset + "]");
     fetch(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=20`)
       .then((response) => response.json())
       .then((data) => {
@@ -20,18 +20,23 @@ function App() {
       .catch((error) => console.log(error));
   }, [offset]);
 
-  // get id and pass to pokemonPage
-  function handleOffsetClick() {
-    setOffset(offset + 20);
-  }
+  useEffect(() => {
+    if (appEl.current.children[1].scrollHeight < appEl.current.clientHeight) {
+      setOffset(offset + 20);
+    }
+  }, [pokemonsData]);
 
   function handleScroll(e) {
-    console.log("scrolled", e);
-    setOffset(offset + 20);
+    let scrollHeight = e.target.scrollHeight;
+    let scrollTop = e.target.scrollTop;
+    let clientHeight = e.target.clientHeight;
+    if (scrollHeight - scrollTop === clientHeight) {
+      setOffset(offset + 20);
+    }
   }
 
   return (
-    <div className="App" onScroll={handleScroll}>
+    <div className="App" onScroll={handleScroll} ref={appEl}>
       <BrowserRouter>
         <Navigation />
         <Switch>
