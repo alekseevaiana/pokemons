@@ -17,6 +17,10 @@ a {
   color: inherit;
 }
 
+.page_header {
+  display: flex;
+}
+
 .pokemons-list {
   display: flex;
   justify-content: space-evenly;

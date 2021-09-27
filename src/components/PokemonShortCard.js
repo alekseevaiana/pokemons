@@ -15,17 +15,16 @@ export default function PokemonShortCard({ data }) {
     <div className="pokemon-card">
       {pokemonData && (
         <Link to={`/pokemon/${pokemonData.id}`}>
-          {/* <div>
-            <span>Name: </span>
-            {data.name}
-          </div> */}
           {pokemonData && (
-            <img
-              src={pokemonData.sprites.other.dream_world.front_default}
-              width="100"
-              height="100"
-              alt={pokemonData.name}
-            />
+            <>
+              <img
+                src={pokemonData.sprites.other.dream_world.front_default}
+                width="100"
+                height="100"
+                alt={pokemonData.name}
+              />
+              <div>{data.name}</div>
+            </>
           )}
         </Link>
       )}

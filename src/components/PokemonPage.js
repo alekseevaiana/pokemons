@@ -12,9 +12,8 @@ export default function PokemonPage() {
       .then((data) => setPokemonData(data))
       .catch((error) => console.log(error));
   }, []);
+
   return (
-    // get abilities, height, weight, type, weakneses
-    // type https://pokeapi.co/api/v2/type/{id}
     <>
       <h1>Pokemon page</h1>
       {pokemonData && (
