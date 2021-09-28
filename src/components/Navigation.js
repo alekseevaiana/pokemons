@@ -6,7 +6,6 @@ export default function Navigation() {
       <Link to="/" className="navigation__logo">
         Pokemons
       </Link>
-      {/* <div>Github page</div> */}
     </div>
   );
 }

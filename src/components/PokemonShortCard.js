@@ -11,19 +11,31 @@ export default function PokemonShortCard({ data }) {
       .catch((error) => console.log(error));
   }, []);
 
+  // const pokemon_name =
+  //   pokemonData.name.charAt(0).toUpperCase() + pokemonData.name.slice(1);
+
   return (
     <div className="pokemon-card">
       {pokemonData && (
         <Link to={`/pokemon/${pokemonData.id}`}>
           {pokemonData && (
             <>
-              <img
-                src={pokemonData.sprites.other.dream_world.front_default}
-                width="100"
-                height="100"
-                alt={pokemonData.name}
-              />
-              <div>{data.name}</div>
+              <div className="pokemon-card__image">
+                <img
+                  src={pokemonData.sprites.other.dream_world.front_default}
+                  width="84"
+                  height="84"
+                  alt={pokemonData.name}
+                />
+              </div>
+              <div className="pokemon-card__id">1</div>
+              <div className="pokemon-card__name pokemon-card__text-box">
+                {pokemonData.name.charAt(0).toUpperCase() +
+                  pokemonData.name.slice(1)}
+              </div>
+              <div className="pokemon-card__char pokemon-card__text-box">
+                Characreristicks
+              </div>
             </>
           )}
         </Link>

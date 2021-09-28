@@ -45,13 +45,14 @@ function App() {
   return (
     <div className="App" onScroll={handleScroll} ref={appEl}>
       <BrowserRouter>
-        <div className="page_header">
+        <div className="page_header container">
           <Navigation />
           <Input
             type="text"
             name="search"
             onChange={handleSearchChange}
             placeholder="Search by name"
+            className="search"
             value={searchValue}
           />
         </div>

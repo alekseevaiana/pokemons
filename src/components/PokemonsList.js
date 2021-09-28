@@ -10,7 +10,7 @@ export default function PokemonsList({ pokemonsData, searchValue }) {
   };
   return (
     <>
-      <section className="pokemons-list">
+      <section className="pokemons-list container">
         {pokemonsData &&
           pokemonsData.filter(checkFilteredPokemon).map((item, id) => {
             return <PokemonShortCard key={id} data={item} />;
