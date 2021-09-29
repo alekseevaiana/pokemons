@@ -24,9 +24,9 @@ function App() {
 
   useEffect(() => {
     //const pokemonsListEl = document.getElementsByClassName("pokemons-list");
-    if (appEl.current.children[1].scrollHeight < appEl.current.clientHeight) {
-      setOffset(offset + 20);
-    }
+    // if (appEl.current.children[1].scrollHeight < appEl.current.clientHeight) {
+    //   setOffset(offset + 20);
+    // }
   }, [pokemonsData]);
 
   function handleScroll(e) {

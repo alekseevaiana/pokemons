@@ -15,17 +15,40 @@ export default function PokemonPage() {
 
   return (
     <>
-      <h1>Pokemon page</h1>
       {pokemonData && (
-        <div>
-          <h2>{pokemonData.name}</h2>
-          <div>id: {pokemonData.id}</div>
-          <img
-            src={pokemonData.sprites.other.dream_world.front_default}
-            width="250"
-            height="auto"
-            alt={pokemonData.name}
-          />
+        <div className="pokemon-page__wrapper">
+          <div>
+            <img
+              src={pokemonData.sprites.other.dream_world.front_default}
+              width="250"
+              height="auto"
+              alt={pokemonData.name}
+            />
+          </div>
+          <div className="pokemon-page__right-box">
+            <div className="pokemon-page__sub-pages">
+              <div className="sub-pages__active">About</div>
+              <div className="sub-pages__non-active">Evolution</div>
+            </div>
+            <div className="pokemon-page__about">
+              <div className="about__column">
+                <div>Id</div>
+                <div>Name</div>
+                <div>Species</div>
+                <div>Height</div>
+                <div>Weight</div>
+                <div>Abilities</div>
+              </div>
+              <div className="about__column">
+                <div>{pokemonData.id}</div>
+                <div>{pokemonData.name}</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </>

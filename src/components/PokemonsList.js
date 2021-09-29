@@ -6,7 +6,7 @@ export default function PokemonsList({ pokemonsData, searchValue }) {
       return true;
     }
     const name = item.name.toLowerCase();
-    return name.includes(searchValue);
+    return name.startsWith(searchValue);
   };
   return (
     <>

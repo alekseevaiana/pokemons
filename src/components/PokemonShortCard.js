@@ -28,7 +28,7 @@ export default function PokemonShortCard({ data }) {
                   alt={pokemonData.name}
                 />
               </div>
-              <div className="pokemon-card__id">1</div>
+              <div className="pokemon-card__id">{pokemonData.id}</div>
               <div className="pokemon-card__name pokemon-card__text-box">
                 {pokemonData.name.charAt(0).toUpperCase() +
                   pokemonData.name.slice(1)}
