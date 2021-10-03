@@ -11,6 +11,7 @@ function App() {
   const [searchValue, setSearchValue] = useState("");
   const [offset, setOffset] = useState(0);
   const appEl = useRef();
+  const [listEl, setListEl] = useState(null);
 
   useEffect(() => {
     console.log("offset in effect is [" + offset + "]");
@@ -23,18 +24,17 @@ function App() {
   }, [offset]);
 
   useEffect(() => {
-    //const pokemonsListEl = document.getElementsByClassName("pokemons-list");
-    // if (appEl.current.children[1].scrollHeight < appEl.current.clientHeight) {
-    //   setOffset(offset + 20);
-    // }
-  }, [pokemonsData]);
+    if (listEl && listEl.scrollHeight < appEl.current.clientHeight) {
+      setOffset((offset) => offset + 20);
+    }
+  }, [pokemonsData, listEl]);
 
   function handleScroll(e) {
     let scrollHeight = e.target.scrollHeight;
     let scrollTop = e.target.scrollTop;
     let clientHeight = e.target.clientHeight;
     if (scrollHeight - scrollTop === clientHeight) {
-      setOffset(offset + 20);
+      setOffset((offset) => offset + 20);
     }
   }
 
@@ -61,6 +61,7 @@ function App() {
             <PokemonsList
               pokemonsData={pokemonsData}
               searchValue={searchValue}
+              ref={setListEl}
             />
           </Route>
           <Route exact path="/pokemon/:id">
