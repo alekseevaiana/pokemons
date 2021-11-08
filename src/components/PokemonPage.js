@@ -15,6 +15,7 @@ export default function PokemonPage() {
 
   return (
     <>
+      {console.log("params " + params)}
       {pokemonData && (
         <div className="pokemon-page__wrapper">
           <div>

@@ -10,11 +10,11 @@ function App() {
   const [pokemonsData, setPokemonsData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [offset, setOffset] = useState(0);
+
   const appEl = useRef();
   const [listEl, setListEl] = useState(null);
 
   useEffect(() => {
-    console.log("offset in effect is [" + offset + "]");
     fetch(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=20`)
       .then((response) => response.json())
       .then((data) => {
@@ -45,19 +45,19 @@ function App() {
   return (
     <div className="App" onScroll={handleScroll} ref={appEl}>
       <BrowserRouter>
-        <div className="page_header container">
-          <Navigation />
-          <Input
-            type="text"
-            name="search"
-            onChange={handleSearchChange}
-            placeholder="Search by name"
-            className="search"
-            value={searchValue}
-          />
-        </div>
         <Switch>
           <Route exact path="/">
+            <div className="page_header container">
+              <Navigation />
+              <Input
+                type="text"
+                name="search"
+                onChange={handleSearchChange}
+                placeholder="Search by name"
+                className="search"
+                value={searchValue}
+              />
+            </div>
             <PokemonsList
               pokemonsData={pokemonsData}
               searchValue={searchValue}
@@ -65,6 +65,9 @@ function App() {
             />
           </Route>
           <Route exact path="/pokemon/:id">
+            <div className="page_header container">
+              <Navigation />
+            </div>
             <PokemonPage />
           </Route>
         </Switch>
