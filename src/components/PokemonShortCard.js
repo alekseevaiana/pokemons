@@ -27,12 +27,13 @@ export default function PokemonShortCard({ data }) {
               </div>
               <div className="pokemon-card__id">{pokemonData.id}</div>
               <div className="pokemon-card__name pokemon-card__text-box">
-                {pokemonData.name.charAt(0).toUpperCase() +
-                  pokemonData.name.slice(1)}
+                {pokemonData.name}
               </div>
-              <div className="pokemon-card__char pokemon-card__text-box">
-                Characreristicks
-              </div>
+              <ul className="pokemon-card__char pokemon-card__text-box">
+                {pokemonData.abilities.map((item) => (
+                  <li>{item.ability.name}</li>
+                ))}
+              </ul>
             </>
           )}
         </Link>

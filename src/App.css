@@ -1,12 +1,16 @@
 .App {
   text-align: center;
-  padding-top: 80px;
+  padding-top: 35px;
   background: #f9fcdf;
   width: 100vw;
   height: 100%;
   position: fixed;
   overflow: auto;
   font-family: "Russo One", sans-serif;
+}
+
+li {
+  list-style: none;
 }
 
 a {
@@ -126,9 +130,11 @@ a {
   padding-left: 15px;
   padding-right: 15px;
   display: table;
+  text-align: left;
   border-radius: 4px;
   padding-top: 10px;
   padding-bottom: 10px;
+  text-transform: capitalize;
 }
 
 .pokemon-page__wrapper {
