@@ -196,6 +196,7 @@ a {
   align-items: flex-start;
   font-size: 18px;
   line-height: 22px;
+  text-transform: capitalize;
 }
 
 .about__column div {

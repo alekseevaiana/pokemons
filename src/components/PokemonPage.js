@@ -41,10 +41,14 @@ export default function PokemonPage() {
               <div className="about__column">
                 <div>{pokemonData.id}</div>
                 <div>{pokemonData.name}</div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div>Species</div>
+                <div>{pokemonData.height}</div>
+                <div>{pokemonData.weight}</div>
+                <div>
+                  {pokemonData.abilities.map((item) => (
+                    <span>{item.ability.name}, </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
