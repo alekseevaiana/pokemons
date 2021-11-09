@@ -30,8 +30,11 @@ export default function PokemonShortCard({ data }) {
                 {pokemonData.name}
               </div>
               <ul className="pokemon-card__char pokemon-card__text-box">
-                {pokemonData.abilities.map((item) => (
-                  <li>{item.ability.name}</li>
+                {pokemonData.abilities.map((item, index) => (
+                  <li>
+                    {item.ability.name}
+                    {index === pokemonData.abilities.length - 1 ? "" : ", "}
+                  </li>
                 ))}
               </ul>
             </>

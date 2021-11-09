@@ -45,8 +45,11 @@ export default function PokemonPage() {
                 <div>{pokemonData.height}</div>
                 <div>{pokemonData.weight}</div>
                 <div>
-                  {pokemonData.abilities.map((item) => (
-                    <span>{item.ability.name}, </span>
+                  {pokemonData.abilities.map((item, index) => (
+                    <span>
+                      {item.ability.name}
+                      {index === pokemonData.abilities.length - 1 ? "" : ", "}
+                    </span>
                   ))}
                 </div>
               </div>
