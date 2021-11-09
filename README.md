@@ -1,5 +1,7 @@
 # Pokemons React App
 
+Main link: https://pokemons-iana.herokuapp.com/
+
 This application uses an external API https://pokeapi.co/
 
 First page displays all the pokemon, with lazy loading. Another page shows the detail of a specific pokemon.
@@ -37,3 +39,7 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ## Deployment
+
+App deployed on Heroku
+
+### `git push heroku dev:master`
