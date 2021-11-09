@@ -11,9 +11,6 @@ export default function PokemonShortCard({ data }) {
       .catch((error) => console.log(error));
   }, []);
 
-  // const pokemon_name =
-  //   pokemonData.name.charAt(0).toUpperCase() + pokemonData.name.slice(1);
-
   return (
     <div className="pokemon-card">
       {pokemonData && (

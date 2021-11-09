@@ -1,13 +1,12 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function PokemonPage() {
   const [pokemonData, setPokemonData] = useState();
   const params = useParams();
-  const id = params.id;
 
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+    fetch(`https://pokeapi.co/api/v2/pokemon/${params.id}`)
       .then((response) => response.json())
       .then((data) => setPokemonData(data))
       .catch((error) => console.log(error));
@@ -15,7 +14,6 @@ export default function PokemonPage() {
 
   return (
     <>
-      {console.log("params " + params)}
       {pokemonData && (
         <div className="pokemon-page__wrapper">
           <div>
