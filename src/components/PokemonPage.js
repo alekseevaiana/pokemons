@@ -7,6 +7,8 @@ import {
   useRouteMatch,
 } from "react-router-dom";
 import { useEffect, useState } from "react";
+import PokemonAboutInfo from "./PokemonAboutInfo";
+import PokemonMoreInfo from "./PokemonMoreInfo";
 
 export default function PokemonPage() {
   const [pokemonData, setPokemonData] = useState();
@@ -27,7 +29,7 @@ export default function PokemonPage() {
     fetch(`https://pokeapi.co/api/v2/pokemon-species/${params.id}`)
       .then((response) => response.json())
       .then((data) => setPokemonSpeciesData(data))
-      .catch((error) => console.log(error));
+      .catch((error) => console.log("ERROR loading species: ", error));
   }, []);
 
   return (
@@ -59,40 +61,15 @@ export default function PokemonPage() {
                   className="sub-pages__non-active"
                   activeClassName="sub-pages__active"
                 >
-                  Evolution
+                  More
                 </NavLink>
               </div>
-
               <Switch>
                 <Route exact path={`${match.path}`}>
-                  <div className="pokemon-page__about">
-                    <div className="about__column">
-                      <div>Id</div>
-                      <div>Name</div>
-                      <div>Height</div>
-                      <div>Weight</div>
-                      <div>Abilities</div>
-                    </div>
-                    <div className="about__column">
-                      <div>{pokemonData.id}</div>
-                      <div>{pokemonData.name}</div>
-                      <div>{pokemonData.height}</div>
-                      <div>{pokemonData.weight}</div>
-                      <div>
-                        {pokemonData.abilities.map((item, index) => (
-                          <span>
-                            {item.ability.name}
-                            {index === pokemonData.abilities.length - 1
-                              ? ""
-                              : ", "}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
+                  <PokemonAboutInfo pokemonData={pokemonData} />
                 </Route>
                 <Route path={`${match.path}/more`}>
-                  <div>MORE PAGE</div>
+                  <PokemonMoreInfo pokemonDataSpecies={pokemonDataSpecies} />
                 </Route>
               </Switch>
             </div>
