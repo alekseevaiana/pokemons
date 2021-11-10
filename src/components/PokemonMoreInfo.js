@@ -10,19 +10,17 @@ export default function PokemonMoreInfo({ pokemonDataSpecies }) {
 
       <div className="about__column">
         {console.log("pokemon data spesies: ", pokemonDataSpecies)}
-        {/* <div>{pokemonDataSpecies.base_happiness}</div> */}
-        {/* <div>{pokemonDataSpecies.capture_rate}</div>
-                        <div>{pokemonDataSpecies.color}</div> */}
-        {/* <div>
-                        {pokemonDataSpecies.egg_groups.map((item, index) => (
-                          <span>
-                            {item.name}
-                            {index === pokemonData.abilities.length - 1
-                              ? ""
-                              : ", "}
-                          </span>
-                        ))}
-                      </div> */}
+        <div>{pokemonDataSpecies.base_happiness}</div>
+        <div>{pokemonDataSpecies.capture_rate}</div>
+        <div>{pokemonDataSpecies.color.name}</div>
+        <div>
+          {pokemonDataSpecies.egg_groups.map((item, index) => (
+            <span key={item.name}>
+              {item.name}
+              {index === pokemonDataSpecies.egg_groups.length - 1 ? "" : ", "}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
