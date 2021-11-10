@@ -17,19 +17,19 @@ export default function PokemonPage() {
   const params = useParams();
 
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${params.id}`)
-      .then((response) => response.json())
-      .then((data) => setPokemonData(data))
-      .catch((error) => {
-        console.log("error message:", error);
-      });
-  }, []);
-
-  useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon-species/${params.id}`)
-      .then((response) => response.json())
-      .then((data) => setPokemonSpeciesData(data))
-      .catch((error) => console.log("ERROR loading species: ", error));
+    Promise.all([
+      fetch(`https://pokeapi.co/api/v2/pokemon/${params.id}`).then((response) =>
+        response.json()
+      ),
+      fetch(`https://pokeapi.co/api/v2/pokemon-species/${params.id}`).then(
+        (response) => response.json()
+      ),
+    ])
+      .then(([data1, data2]) => {
+        setPokemonData(data1);
+        setPokemonSpeciesData(data2);
+      })
+      .catch((error) => console.log("ERROR: ", error));
   }, []);
 
   return (
