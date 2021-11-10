@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import PokemonPage from "./components/PokemonPage";
 import Navigation from "./components/Navigation";
 import Input from "./components/Input";
+import NotFound from "./components/NotFound";
 
 function App() {
   const [pokemonsData, setPokemonsData] = useState([]);
@@ -69,6 +70,10 @@ function App() {
               <Navigation />
             </div>
             <PokemonPage />
+          </Route>
+          <Route>
+            <Navigation />
+            <NotFound />
           </Route>
         </Switch>
       </BrowserRouter>

@@ -1,6 +1,6 @@
 import {
   BrowserRouter,
-  Link,
+  NavLink,
   Route,
   Switch,
   useParams,
@@ -18,7 +18,9 @@ export default function PokemonPage() {
     fetch(`https://pokeapi.co/api/v2/pokemon/${params.id}`)
       .then((response) => response.json())
       .then((data) => setPokemonData(data))
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log("error message:", error);
+      });
   }, []);
 
   useEffect(() => {
@@ -43,15 +45,22 @@ export default function PokemonPage() {
             </div>
             <div className="pokemon-page__right-box">
               <div className="pokemon-page__sub-pages">
-                <Link to={`${match.url}`} className="sub-pages__active">
-                  About
-                </Link>
-                <Link
-                  to={`${match.url}/more`}
+                <NavLink
+                  to={`${match.url}`}
+                  exact
                   className="sub-pages__non-active"
+                  activeClassName="sub-pages__active"
+                >
+                  About
+                </NavLink>
+                <NavLink
+                  to={`${match.url}/more`}
+                  exact
+                  className="sub-pages__non-active"
+                  activeClassName="sub-pages__active"
                 >
                   Evolution
-                </Link>
+                </NavLink>
               </div>
 
               <Switch>

@@ -175,7 +175,8 @@ a {
   margin-bottom: 45px;
 }
 
-.pokemon-page__sub-pages div {
+.sub-pages__non-active {
+  color: rgba(141, 169, 212, 0.43);
   margin-right: 55px;
 }
 
@@ -183,10 +184,6 @@ a {
   color: #8da9d4;
   border-bottom: 2px solid #8da9d4;
   padding-bottom: 15px;
-}
-
-.sub-pages__non-active {
-  color: rgba(141, 169, 212, 0.43);
 }
 
 .about__column {
