@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useEffect, useState, useRef } from "react";
 import PokemonsList from "./components/PokemonsList";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Switch, Route, HashRouter } from "react-router-dom";
 import PokemonPage from "./components/PokemonPage";
 import Navigation from "./components/Navigation";
 import Input from "./components/Input";
@@ -45,7 +45,7 @@ function App() {
 
   return (
     <div className="App" onScroll={handleScroll} ref={appEl}>
-      <BrowserRouter>
+      <HashRouter>
         <Switch>
           <Route exact path="/">
             <div className="page_header container">
@@ -76,7 +76,7 @@ function App() {
             <NotFound />
           </Route>
         </Switch>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
