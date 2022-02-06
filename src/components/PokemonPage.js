@@ -34,48 +34,46 @@ export default function PokemonPage() {
 
   return (
     <>
-      <BrowserRouter>
-        {pokemonData && (
-          <div className="pokemon-page__wrapper">
-            <div>
-              <img
-                src={pokemonData.sprites.other.dream_world.front_default}
-                width="250"
-                height="auto"
-                alt={pokemonData.name + " image"}
-              />
-            </div>
-            <div className="pokemon-page__right-box">
-              <div className="pokemon-page__sub-pages">
-                <NavLink
-                  to={`${match.url}`}
-                  exact
-                  className="sub-pages__non-active"
-                  activeClassName="sub-pages__active"
-                >
-                  About
-                </NavLink>
-                <NavLink
-                  to={`${match.url}/more`}
-                  exact
-                  className="sub-pages__non-active"
-                  activeClassName="sub-pages__active"
-                >
-                  More
-                </NavLink>
-              </div>
-              <Switch>
-                <Route exact path={`${match.path}`}>
-                  <PokemonAboutInfo pokemonData={pokemonData} />
-                </Route>
-                <Route path={`${match.path}/more`}>
-                  <PokemonMoreInfo pokemonDataSpecies={pokemonDataSpecies} />
-                </Route>
-              </Switch>
-            </div>
+      {pokemonData && (
+        <div className="pokemon-page__wrapper">
+          <div>
+            <img
+              src={pokemonData.sprites.other.dream_world.front_default}
+              width="250"
+              height="auto"
+              alt={pokemonData.name + " image"}
+            />
           </div>
-        )}
-      </BrowserRouter>
+          <div className="pokemon-page__right-box">
+            <div className="pokemon-page__sub-pages">
+              <NavLink
+                to={`${match.url}`}
+                exact
+                className="sub-pages__non-active"
+                activeClassName="sub-pages__active"
+              >
+                About
+              </NavLink>
+              <NavLink
+                to={`${match.url}/more`}
+                exact
+                className="sub-pages__non-active"
+                activeClassName="sub-pages__active"
+              >
+                More
+              </NavLink>
+            </div>
+            <Switch>
+              <Route exact path={`${match.path}`}>
+                <PokemonAboutInfo pokemonData={pokemonData} />
+              </Route>
+              <Route path={`${match.path}/more`}>
+                <PokemonMoreInfo pokemonDataSpecies={pokemonDataSpecies} />
+              </Route>
+            </Switch>
+          </div>
+        </div>
+      )}
     </>
   );
 }
