@@ -3,13 +3,12 @@ export default function PokemonMoreInfo({ pokemonDataSpecies }) {
     <div className="pokemon-page__about">
       <div className="about__column">
         <div>Base happines:</div>
-        <div>Capture rate</div>
-        <div>Color</div>
-        <div>Egg groups</div>
+        <div>Capture rate:</div>
+        <div>Color:</div>
+        <div>Egg groups:</div>
       </div>
 
       <div className="about__column">
-        {console.log("pokemon data spesies: ", pokemonDataSpecies)}
         <div>{pokemonDataSpecies.base_happiness}</div>
         <div>{pokemonDataSpecies.capture_rate}</div>
         <div>{pokemonDataSpecies.color.name}</div>
