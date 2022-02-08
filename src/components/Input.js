@@ -14,7 +14,7 @@ export default function Input({
       placeholder={placeholder}
       onChange={onChange}
       className={className}
-      autocomplete="off"
+      autoComplete="off"
     />
   );
 }

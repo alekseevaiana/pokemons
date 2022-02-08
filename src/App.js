@@ -50,14 +50,16 @@ function App() {
           <Route exact path="/">
             <div className="page_header">
               <Navigation />
-              <Input
-                type="text"
-                name="search"
-                onChange={handleSearchChange}
-                placeholder="Search by name"
-                className="search"
-                value={searchValue}
-              />
+              <div className="container">
+                <Input
+                  type="text"
+                  name="search"
+                  onChange={handleSearchChange}
+                  placeholder="Search by name"
+                  className="search"
+                  value={searchValue}
+                />
+              </div>
             </div>
             <PokemonsList
               pokemonsData={pokemonsData}
