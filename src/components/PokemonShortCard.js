@@ -14,7 +14,7 @@ export default function PokemonShortCard({ data }) {
   return (
     <div className="pokemon-card">
       {pokemonData && (
-        <Link to={`/pokemon/${pokemonData.id}`}>
+        <Link to={`/pokemon/${pokemonData.id}/about`}>
           {pokemonData && (
             <>
               <div className="pokemon-card__image">

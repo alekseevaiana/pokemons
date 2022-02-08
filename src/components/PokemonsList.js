@@ -16,8 +16,9 @@ function PokemonsList({ pokemonsData, searchValue }, ref) {
           return (
             <div
               style={{ display: checkFilteredPokemon(item) ? "block" : "none" }}
+              key={item.name}
             >
-              <PokemonShortCard key={item.name} data={item} />
+              <PokemonShortCard data={item} />
             </div>
           );
         })}

@@ -65,7 +65,7 @@ function App() {
               ref={setListEl}
             />
           </Route>
-          <Route exact path="/pokemon/:id">
+          <Route path="/pokemon/:id/about">
             <div className="page_header container">
               <Navigation />
             </div>

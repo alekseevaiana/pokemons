@@ -1,6 +1,6 @@
 # Pokemons React App
 
-Main link: https://pokemons-iana.herokuapp.com/
+Main link: https://alekseevaiana.github.io/pokemons/
 
 This application uses an external API https://pokeapi.co/
 
@@ -40,6 +40,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Deployment
 
-App deployed on Heroku
-
-### `git push heroku dev:master`
+App deployed with Github Pages
+`yarn run deploy`
