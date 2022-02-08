@@ -48,7 +48,7 @@ function App() {
       <HashRouter>
         <Switch>
           <Route exact path="/">
-            <div className="page_header container">
+            <div className="page_header">
               <Navigation />
               <Input
                 type="text"
@@ -66,7 +66,7 @@ function App() {
             />
           </Route>
           <Route path="/pokemon/:id/about">
-            <div className="page_header container">
+            <div className="page_header">
               <Navigation />
             </div>
             <PokemonPage />

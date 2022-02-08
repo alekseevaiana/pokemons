@@ -8,6 +8,7 @@ import {
 import { useEffect, useState } from "react";
 import PokemonAboutInfo from "./PokemonAboutInfo";
 import PokemonMoreInfo from "./PokemonMoreInfo";
+import NotFound from "./NotFound";
 
 export default function PokemonPage() {
   const [pokemonData, setPokemonData] = useState();
@@ -66,8 +67,11 @@ export default function PokemonPage() {
               <Route exact path={`${match.path}`}>
                 <PokemonAboutInfo pokemonData={pokemonData} />
               </Route>
-              <Route path={`${match.path}/more`}>
+              <Route exact path={`${match.path}/more`}>
                 <PokemonMoreInfo pokemonDataSpecies={pokemonDataSpecies} />
+              </Route>
+              <Route>
+                <NotFound />
               </Route>
             </Switch>
           </div>

@@ -5,7 +5,7 @@ export default function Navigation() {
   const matchBaseUrl = location.pathname === "/";
 
   return (
-    <div className="navigation">
+    <div className="navigation container">
       {matchBaseUrl ? (
         <div className="navigation__logo">Pokemons</div>
       ) : (
